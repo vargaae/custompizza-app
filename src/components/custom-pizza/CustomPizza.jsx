@@ -120,7 +120,14 @@ const CustomPizza = () => {
         <p>
           <strong>{size}</strong> pizza,
         </p>
-        <p>toppings: {toppings.length > 0 ? toppings.join(", ") : "none"}</p>
+        <p>Toppings: {toppings.length > 0 ? toppings.join(", ") : "none"}</p>
+        <p>${sizePrices[size]}</p>
+        {toppings.length > 0 ? (
+          <p>
+            + {toppings.length} x ${toppingPrice}
+          </p>
+        ) : null}
+
         <p className="total-cost">Total Cost: ${totalCost}</p>
       </div>
     </CustomPizzaContainer>
