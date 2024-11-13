@@ -61,6 +61,10 @@ export const StartContainer = styled.div`
   }
 `;
 
-export const ListItem = styled.div`
+export const PizzaList = styled.div`
+  color: black;
+`;
+
+export const PizzaListItem = styled.div`
   padding: 1em;
 `;
