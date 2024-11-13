@@ -6,7 +6,7 @@ import {
   StartHeader,
 } from "../../components";
 
-import { ButtonContainer } from "./Start.styles";
+import { StartContainer, ButtonContainer } from "./Start.styles";
 
 const Start = () => {
   const navigateTo = useNavigate();
@@ -16,7 +16,7 @@ const Start = () => {
   };
 
   return (
-    <>
+    <StartContainer>
       <StartHeader />
       <ButtonContainer>
         <ButtonComponent
@@ -27,7 +27,7 @@ const Start = () => {
           ORDER CUSTOM PIZZA
         </ButtonComponent>
       </ButtonContainer>
-    </>
+    </StartContainer>
   );
 };
 
