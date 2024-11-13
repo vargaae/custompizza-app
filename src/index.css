@@ -6,18 +6,16 @@
   
   --primary-color: #ff6347;
   --secondary-color: #2c3e50;
-  --light-color: #ffeaa3;
+  --color-bg: #142332;
   --background-color: #f4f4f4;
   --text-color: #333;
-  
-  --color-bg: #142332;
   
   --color-prime: #4170e8;
   --color-white: #f2f2f2;
   
   --color-text: #3791AF;
   
-  --border-radius: 8px;
+  --border-radius: 0px;
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   
   color-scheme: light dark;
