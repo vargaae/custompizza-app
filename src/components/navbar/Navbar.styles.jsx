@@ -61,4 +61,5 @@ export const NavLinksContainer = styled.div`
 export const NavLink = styled(Link)`
   line-height: 20px;
   cursor: pointer;
+  color: var(--color-white);
 `;

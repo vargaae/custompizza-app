@@ -5,52 +5,9 @@ export const CustomPizzaContainer = styled.div`
   padding: 10px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   text-align: center;
-
-  h1 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-
-  .size-selector,
-  .toppings-selector,
-  .summary-box {
-    margin-bottom: 20px;
-  }
-
-  .size-options {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  .topping-options {
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    flex-wrap: wrap;
-  }
-
-  .size-option,
-  .topping-option {
-    background: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .topping-option {
-    width: 100%;
-  }
-
-  .size-option input {
-    display: none;
-  }
 
   .topping-option input {
     padding: 2px;
@@ -61,39 +18,100 @@ export const CustomPizzaContainer = styled.div`
     background: var(--primary-color);
   }
 
-  .checkall {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    transition: background 0.3s ease;
   }
-
-  .summary-box {
-    background: var(--background-color);
-    padding: 15px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    text-align: right;
+  button:hover {
+    border-color: #646cff;
   }
-
-  .total-cost {
-    font-size: 1.2em;
-    color: var(--primary-color);
-    margin-top: 10px;
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
   }
 `;
 
-export const CheckoutHeader = styled.div``;
+export const CustomPizzaTitle = styled.h1`
+  color: var(--primary-color);
+  margin-bottom: 20px;
+`;
 
-export const HeaderBlock = styled.div``;
+export const SizeSelector = styled.div`
+  margin-bottom: 20px;
+`;
 
-export const Total = styled.span``;
+export const ToppingsSelector = styled(SizeSelector)``;
 
-export const PaymentFormContainer = styled.div``;
+export const Options = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-export const FormContainer = styled.form``;
+export const SizeOptions = styled(Options)`
+  justify-content: space-around;
+`;
 
-export const ButtonContainer = styled.div``;
+export const ToppingOptions = styled(Options)`
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+`;
 
-export const ButtonsContainer = styled.div``;
+export const Option = styled.label`
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+`;
 
-export const EmptyMessage = styled.div``;
+export const SizeOption = styled(Option)`
+  // display: none;
+`;
+
+export const ToppingOption = styled(Option)`
+  width: 100%;
+`;
+
+export const CheckAll = styled(Options)`
+  justify-content: space-between;
+`;
+
+export const SummaryBox = styled(SizeSelector)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 15rem;
+  background: var(--background-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: right;
+`;
+
+export const OrderedPizzas = styled(SizeSelector)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 10rem;
+  background: var(--color-gray);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+`;
+
+export const TotalCost = styled.p`
+  font-size: 1.2em;
+  color: var(--primary-color);
+  margin-top: 10px;
+`;

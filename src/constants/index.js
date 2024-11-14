@@ -36,3 +36,9 @@ export const pizzas = [
     ingredients: "Tomato, Mozzarella, Ham, Pineapple",
   },
 ];
+
+export const sizes = [
+  { id: 1, name: "Small", title: "Small ø 24 cm ($4.99)", price: 4.99 },
+  { id: 2, name: "Medium", title: "Medium ø 32 cm ($7.99)", price: 7.99 },
+  { id: 3, name: "Large", title: "Large ø 50 cm ($12.99)", price: 12.99 },
+];

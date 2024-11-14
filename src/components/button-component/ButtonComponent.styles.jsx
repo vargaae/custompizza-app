@@ -81,6 +81,14 @@ export const BackButton = styled(BaseButton)`
   }
 `;
 
+export const DeleteButton = styled.button`
+  font-family: var(--font-family-numbers);
+
+  &:hover {
+    color: #142332;
+  }
+`;
+
 export const InvertedButton = styled(BaseButton)`
   width: auto;
   height: 50px;

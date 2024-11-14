@@ -2,6 +2,7 @@ import {
   BaseButton,
   StartButton,
   InvertedButton,
+  DeleteButton,
   BackButton,
   ButtonSpinner,
 } from "./ButtonComponent.styles";
@@ -10,6 +11,7 @@ export const BUTTON_TYPE_CLASSES = {
   base: "base",
   start: "start",
   inverted: "inverted",
+  delete: "delete",
   back: "back",
 };
 
@@ -18,6 +20,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
     [BUTTON_TYPE_CLASSES.base]: BaseButton,
     [BUTTON_TYPE_CLASSES.start]: StartButton,
     [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+    [BUTTON_TYPE_CLASSES.delete]: DeleteButton,
     [BUTTON_TYPE_CLASSES.back]: BackButton,
   }[buttonType]);
 

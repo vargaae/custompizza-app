@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { CustomPizzaContainer } from "./CustomPizza.styles";
+import {
+  CheckAll,
+  CustomPizzaContainer,
+  CustomPizzaTitle,
+  OrderedPizzas,
+  SizeOption,
+  SizeOptions,
+  SizeSelector,
+  SummaryBox,
+  ToppingOption,
+  ToppingOptions,
+  ToppingsSelector,
+  TotalCost,
+} from "./CustomPizza.styles";
+import ButtonComponent, { BUTTON_TYPE_CLASSES } from "../button-component/ButtonComponent";
+import { sizes } from "../../constants";
 
 const CustomPizza = () => {
-  // State variables
   const [size, setSize] = useState("Medium");
   const [toppings, setToppings] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   // Prices for the sizes and toppings
   const sizePrices = { Small: 4.99, Medium: 7.99, Large: 12.99 };
@@ -19,6 +34,17 @@ const CustomPizza = () => {
     "Onions",
     "Olives",
   ];
+
+  // Load orders from localStorage when the component mounts
+  useEffect(() => {
+    const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    setOrders(savedOrders);
+  }, []);
+
+  // Save orders to localStorage
+  const saveOrdersToLocalStorage = (newOrders) => {
+    localStorage.setItem("orders", JSON.stringify(newOrders));
+  };
 
   // Handler for size change
   const handleSizeChange = (event) => {
@@ -39,6 +65,7 @@ const CustomPizza = () => {
   const uncheckToppings = () => {
     setToppings([]);
   };
+
   // Check all toppings
   const checkToppings = () => {
     setToppings(availableToppings);
@@ -49,73 +76,80 @@ const CustomPizza = () => {
     2
   );
 
+  // Place order and save it to localStorage
+  const handlePlaceOrder = () => {
+    const newOrder = { size, toppings, totalCost };
+    const updatedOrders = [...orders, newOrder];
+    setOrders(updatedOrders);
+    saveOrdersToLocalStorage(updatedOrders);
+    setSize("Medium");
+    setToppings([]);
+  };
+
+  // Delete a specific order
+  const handleDeleteOrder = (index) => {
+    const updatedOrders = orders.filter((_, i) => i !== index);
+    setOrders(updatedOrders);
+    saveOrdersToLocalStorage(updatedOrders);
+  };
+
+  // Clear all orders
+  const handleClearOrders = () => {
+    setOrders([]);
+    localStorage.removeItem("orders");
+  };
+
   return (
     <CustomPizzaContainer>
-      <h1>🍕 Customize Your Pizza</h1>
+      <CustomPizzaTitle>🍕 Customize Your Pizza</CustomPizzaTitle>
+
       {/* Size Selector */}
-      <div className="size-selector">
+      <SizeSelector>
         <h3>Choose Your Size:</h3>
-        <div className="size-options">
-          <label
-            className={`size-option ${size === "Small" ? "selected" : ""}`}
-          >
-            <input
-              type="radio"
-              value="Small"
-              checked={size === "Small"}
-              onChange={handleSizeChange}
-            />
-            Small ø 24 cm ($4.99)
-          </label>
-          <label
-            className={`size-option ${size === "Medium" ? "selected" : ""}`}
-          >
-            <input
-              type="radio"
-              value="Medium"
-              checked={size === "Medium"}
-              onChange={handleSizeChange}
-            />
-            Medium ø 32 cm ($7.99)
-          </label>
-          <label
-            className={`size-option ${size === "Large" ? "selected" : ""}`}
-          >
-            <input
-              type="radio"
-              value="Large"
-              checked={size === "Large"}
-              onChange={handleSizeChange}
-            />
-            Medium ø 50 cm ($12.99)
-          </label>
-        </div>
-      </div>
+        <SizeOptions>
+          {sizes.map((pizzasize) => (
+            <SizeOption
+              key={pizzasize.id}
+              className={`size-option ${
+                size === pizzasize.name ? "selected" : ""
+              }`}
+            >
+              <input
+                type="radio"
+                value={pizzasize.name}
+                checked={size === pizzasize.name}
+                onChange={handleSizeChange}
+              />
+              {pizzasize.title}
+            </SizeOption>
+          ))}
+        </SizeOptions>
+      </SizeSelector>
 
       {/* Toppings Selector */}
-      <div className="toppings-selector">
+      <ToppingsSelector>
         <h3>Select Your Toppings:</h3>
-        <div className="checkall">
+        <CheckAll>
           <button onClick={checkToppings}>Select all toppings</button>
           <button onClick={uncheckToppings}>Unselect toppings</button>
-        </div>
-        <div className="topping-options">
+        </CheckAll>
+        <ToppingOptions>
           {availableToppings.map((topping, index) => (
-            <label key={index} className="topping-option">
+            <ToppingOption key={index} className="topping-option">
               <input
                 type="checkbox"
                 value={topping}
                 checked={toppings.includes(topping)}
                 onChange={handleToppingChange}
-              />{" "}
+              />{"  "}
               {topping}
-            </label>
+            </ToppingOption>
           ))}
-        </div>
-      </div>
+        </ToppingOptions>
+      </ToppingsSelector>
 
       {/* Summary Box */}
-      <div className="summary-box">
+      <SummaryBox>
         <h3>Order Summary:</h3>
         <p>
           <strong>{size}</strong> pizza,
@@ -127,9 +161,38 @@ const CustomPizza = () => {
             + {toppings.length} x ${toppingPrice}
           </p>
         ) : null}
+        <TotalCost>Total Cost: ${totalCost}</TotalCost>
 
-        <p className="total-cost">Total Cost: ${totalCost}</p>
-      </div>
+        <ButtonComponent
+          onClick={handlePlaceOrder}
+          buttonType={BUTTON_TYPE_CLASSES.start}
+        >
+          Place Order
+        </ButtonComponent>
+      </SummaryBox>
+
+      {/* Ordered Pizzas Box */}
+      <OrderedPizzas className="ordered-pizzas">
+        <h3>Ordered Pizzas:</h3>
+        {orders.length > 0 ? (
+          orders &&
+          orders.map((order, index) => (
+            <div key={index} className="order-item">
+              <div>
+                {order.size} pizza with{" "}
+                {order.toppings.length > 0 ? order.toppings.join(", ") : "none"}{" "}
+                - ${order.totalCost}{" "}
+              <ButtonComponent onClick={() => handleDeleteOrder(index)} buttonType={BUTTON_TYPE_CLASSES.delete}>
+                x
+              </ButtonComponent>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No orders yet.</p>
+        )}
+        <button onClick={handleClearOrders}>Clear All Orders</button>
+      </OrderedPizzas>
     </CustomPizzaContainer>
   );
 };

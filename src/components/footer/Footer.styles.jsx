@@ -29,11 +29,6 @@ export const Heading = styled.div`
     font-weight: 800;
     font-size: 64px;
     line-height: 75px;
-    // GRADIENT TEXT:
-    background: var(--gradient-text);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
     @media screen and (max-width: 850px) {
       font-size: 44px;
@@ -216,7 +211,7 @@ export const CopyrightContainer = styled.div`
   width: 100%;
 
   p {
-    font-family: var(Inter, Inter Placeholder, sans-serif, --font-family);
+    font-family: var(--font-family);
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
