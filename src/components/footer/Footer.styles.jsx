@@ -18,62 +18,6 @@ export const FooterContainer = styled.div`
   }
 `;
 
-export const Heading = styled.div`
-  width: 100%;
-  text-align: center;
-
-  margin-bottom: 3rem;
-
-  h1 {
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 64px;
-    line-height: 75px;
-
-    @media screen and (max-width: 850px) {
-      font-size: 44px;
-      line-height: 50px;
-    }
-
-    @media screen and (max-width: 550px) {
-      font-size: 34px;
-      line-height: 42px;
-    }
-    @media screen and (max-width: 400px) {
-      font-size: 27px;
-      line-height: 38px;
-    }
-  }
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 1rem;
-  border: 1px solid #fff;
-  text-align: center;
-
-  margin-bottom: 5rem;
-  cursor: pointer;
-
-  a {
-    font-size: 18px;
-    font-family: var(--font-family);
-    line-height: 21px;
-    color: #fff;
-    word-spacing: 2px;
-  }
-
-  p {
-    @media screen and (max-width: 550px) {
-      font-size: 14px;
-      line-height: 20px;
-    }
-  }
-`;
-
 export const LinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -143,7 +87,7 @@ export const LinksDivContainer = styled.div`
     letter-spacing: -0.02em;
     line-height: 1.6em;
 
-    current-text-decoration: none;
+    text-decoration: none;
     text-decoration: none;
     transition: color 0.3s cubic-bezier(0.44, 0, 0.56, 1) 0s;
 

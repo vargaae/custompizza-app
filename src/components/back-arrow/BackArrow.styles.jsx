@@ -38,7 +38,6 @@ export const BackArrowTitle = styled.div`
   }
 
   button {
-    // flex: 1;
     text-align: start;
   }
 `;

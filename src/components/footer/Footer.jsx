@@ -1,11 +1,9 @@
 import { navigation } from "../../constants";
 
-import logo from "../../assets/logo.svg";
+import { logo } from "../../assets";
 
 import {
   FooterContainer,
-  Heading,
-  ButtonContainer,
   LinksContainer,
   LinksLogoContainer,
   LinksDivContainer,

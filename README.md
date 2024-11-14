@@ -22,10 +22,19 @@ So it should look something like this:
 <p>You can check out the deployed application [here](https://custompizza-app.onrender.com)
 ->deployed on Render</p>
 
-## 🛠 Front End:
+## 🛠 Features
+
+- Customization with size and toppings
+- Calculate costs, total cost
+- Place Order/Save Customized Pizza
+- Check Ordered Pizzas
+- Delete Orders, Delete Specific Order
+- ErrorHandling: ErrorPage
+
+## 🛠 Front End
 
 - 🚀React APP
-- React 18.2
+- React 18.3.1
 - SASS
 - styled components
 

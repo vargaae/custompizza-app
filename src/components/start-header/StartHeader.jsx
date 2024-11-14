@@ -1,4 +1,4 @@
-import { images, pizzas } from "../../constants";
+import { pizzas } from "../../constants";
 
 import {
   BannerContainer,
@@ -10,11 +10,7 @@ import {
 
 const StartHeader = () => {
   return (
-    <BannerContainer
-      style={{
-        backgroundImage: `url(${images.banner})`,
-      }}
-    >
+    <BannerContainer>
       <BannerContent>
         <StartContainer>
           <h2 className="pizzamenu">Our Pizza Menu</h2>

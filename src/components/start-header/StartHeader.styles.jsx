@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
+import { images } from "../../constants";
+
 const cardEntrance = keyframes`
 from {
     opacity: 0;
@@ -17,9 +19,7 @@ export const BannerContainer = styled.div`
   animation-fill-mode: backwards;
   animation-delay: calc(1 * 100ms);
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: url(${images.banner}) no-repeat center center / cover;
 `;
 export const BannerContent = styled.div`
   display: flex;

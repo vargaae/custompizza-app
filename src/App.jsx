@@ -52,10 +52,14 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider
-  future={{
-    v7_startTransition: true,
-  }} router={router} />;
+  return (
+    <RouterProvider
+      future={{
+        v7_startTransition: true,
+      }}
+      router={router}
+    />
+  );
 };
 
 export default App;

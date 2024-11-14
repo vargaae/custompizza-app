@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
-import plus from "./svg/plus.svg";
+import logo from "./svg/logo.svg";
 
 import background from "./banner/banner.jpg";
 
-export { plus, logo, background };
+export { logo, background };

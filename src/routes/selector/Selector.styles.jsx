@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
+import { images } from "../../constants";
+
 const cardEntrance = keyframes`
 from {
     opacity: 0;
@@ -17,9 +19,8 @@ export const BannerContainer = styled.div`
   animation-fill-mode: backwards;
   animation-delay: calc(1 * 100ms);
 
-  background: url("https://images.pexels.com/photos/19130186/pexels-photo-19130186.jpeg?auto=compress&cs=tinysrgb&w=1600")
-    no-repeat center center / cover;
-  min-height: 40vh;
+  background: url(${images.custompizzaFull}) no-repeat center center / cover;
+  min-height: 30vh;
 `;
 
 export const SelectorContainer = styled.div`
@@ -44,12 +45,6 @@ export const SelectorContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   margin-top: 3.5rem;
-  display: flex;
-  justify-content: center;
-  color: var(--color-bg);
-`;
-
-export const PlusButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   color: var(--color-bg);

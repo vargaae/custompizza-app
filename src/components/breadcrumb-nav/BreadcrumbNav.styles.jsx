@@ -10,7 +10,6 @@ export const BreadcrumbNavContainer = styled.div`
   letter-spacing: -0.02em;
   line-height: 1.6em;
   text-align: start;
-  color: var(--color-prime);
 
   place-content: center;
   align-items: center;
@@ -41,6 +40,7 @@ export const BreadcrumbNavContainer = styled.div`
 `;
 
 export const BreadcrumbLink = styled(Link)`
+  color: var(--color-prime);
   background: linear-gradient(0deg, lightblue, #54b3d6 50%) no-repeat right
     bottom / 0 var(--bg-h);
   transition: background-size 550ms;

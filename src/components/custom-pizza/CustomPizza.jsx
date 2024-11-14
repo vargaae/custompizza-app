@@ -14,7 +14,9 @@ import {
   ToppingsSelector,
   TotalCost,
 } from "./CustomPizza.styles";
-import ButtonComponent, { BUTTON_TYPE_CLASSES } from "../button-component/ButtonComponent";
+import ButtonComponent, {
+  BUTTON_TYPE_CLASSES,
+} from "../button-component/ButtonComponent";
 import { sizes } from "../../constants";
 
 const CustomPizza = () => {
@@ -141,7 +143,8 @@ const CustomPizza = () => {
                 value={topping}
                 checked={toppings.includes(topping)}
                 onChange={handleToppingChange}
-              />{"  "}
+              />
+              {"  "}
               {topping}
             </ToppingOption>
           ))}
@@ -182,9 +185,12 @@ const CustomPizza = () => {
                 {order.size} pizza with{" "}
                 {order.toppings.length > 0 ? order.toppings.join(", ") : "none"}{" "}
                 - ${order.totalCost}{" "}
-              <ButtonComponent onClick={() => handleDeleteOrder(index)} buttonType={BUTTON_TYPE_CLASSES.delete}>
-                x
-              </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => handleDeleteOrder(index)}
+                  buttonType={BUTTON_TYPE_CLASSES.delete}
+                >
+                  x
+                </ButtonComponent>
               </div>
             </div>
           ))
